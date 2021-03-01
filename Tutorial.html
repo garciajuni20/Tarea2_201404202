@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+body {background-color: gray;}
+h1   {color: blue;}
+a    {color: red;}
+h2	 {color: brown;}
+h3	 {color: black;}
+</style>
+
+	<title>Tutorial Clases y Objetos</title>
+</head>
+<body>
+	<h1>¿Qué son las clases en Java?</h1><br>
+<p>Una clase en Java se puede entender como un prototipo que define las variables y los métodos comunes a un cierto tipo de instancias, una clase define todo lo que caracteriza y pueden hacer una o varias instancias.<br>
+
+En nuestro ejemplo de la fábrica de galletas, la clase sería uno de los moldes para galletas, junto con los métodos para colorearlas y la receta (método para prepararlas). Quiere decir que en nuestro programa de Java tendremos una manera de especificar las características de la galleta dado que hay diferentes moldes de galletas.<br>
+
+En java las clases son las matrices de las que luego se pueden crear múltiples instancias del mismo tipo. La clase define las variables y los métodos comunes a las instancias de ese tipo (el tipo de la clase creada), pero luego, cada instancia de esta clase tendrá sus propios valores (su propio molde, color y receta) y compartirán las mismas funciones.<br>
+
+En java, primero deberemos crear una clase antes de poder crear instancias o ejemplares de esa clase. Evidentemente primero necesitamos los moldes y demás para poder hacer las galletas.<br></p>
+
+	<h1>¿Qué son los objetos en Java?</h1><br>
+<p>En Java, un objeto es básicamente una instancia de una clase (las instancias de las que hablábamos hace un momento). Para el ejemplo de la fábrica de galletas, los objetos vendrían siendo cada una de las diferentes galletas obtenidas de los moldes definidos (clases), creados por medio de un proceso o "constructor" de galletas.<br>
+
+Muy bien, ya hemos hecho un repaso sobre el concepto de clase y objeto en Java, sin embargo aún no sabemos cómo crearlos ni usarlos, así que vamos a ello.
+<br>
+</p>
+<h2>¿Cómo crear una clase en Java?</h2>
+<p>Como dije anteriormente la clase es la que nos dice los componentes del ejemplar que vamos a crear, es decir, una clase contiene los atributos y los métodos que conformarán al ejemplar o instancias, de este modo al momento de crear una clase en Java, debemos especificar el tipo y el nombre (como mínimo) de los atributos y adicionalmente debemos especificar (si existen) los métodos o funciones, el tipo de dato que retornan, el nombre y los parámetros que reciben dichos métodos.<br>
+
+Veamos la estructura básica de una clase en Java y luego veamos unos ejemplos de clases en java un poco más complejos e ilustrativos.<br>
+
+Estructura básica de una clase en Java<br>
+
+//Le damos un nombre "MiClase" a la clase<br>
+public class MiClase<br>
+{
+    //Atributos de la clase<br>
+    private String atributo1;<br><br>
+    private int atributo 2;<br>
+    private float atributo 3;<br>
+
+    //Constructor con el mismo nombre de la clase<br>
+    public MiClase(){}
+
+    //Métodos de la clase<br>
+    public void metodo1()<br>
+    {
+        //Método vacio<br>
+    }
+
+    public String metodo2()<br>
+    {
+        return "metodo2";<br>
+    }
+}
+<br>
+
+En el ejemplo anterior hemos creado una clase en Java llamada "MiClase" la cual posee un total de tres atributos (todos ellos privados) y son de tipo String, int y float respectivamente. Adicionalmente esta clase tiene un constructor (que siempre por norma, debe tener el mismo nombre de la clase) el cual no recibe ningún parámetro, aunque pueden recibir todos los parámetros que nosotros deseemos, también tiene un método llamado "metodo1" que no retorna valor alguno (es de tipo void) y otro método llamado "metodo2" que retorna una cadena de caracteres (es de tipo String) con el valor "metodo2". Cabe resaltar que una clase en Java puede tener o no métodos y atributos, sin embargo lo más normal en la mayoría de los casos es que tenga tanto métodos como atributos que la caractericen.<br>
+
+Veamos ahora un ejemplo un poco más completo e ilustrativo.<br>
+
+Ejemplo de clases en Java<br>
+
+package misClases; //Se le declara un paquete<br>
+
+public class Animal<br>
+{
+    private String raza;<br>
+    private String nombre;<br>
+    private int edad;<br>
+
+    public Animal(String nuevoNombre)<br>
+    {
+        nombre = nuevoNombre; //Se le da un nombre al animal<br>
+    }
+
+    //Método para obtener la edad del animal<br>
+    public int getEdad()<br>
+    {
+        return edad;<br>
+    }
+
+    //Método para establecer la edad del animal<br>
+    public void setEdad(int nuevaEdad)<br>
+    {
+        edad = nuevaEdad;<br>
+    }
+
+    //Método para obtener el nombre del animal<br>
+    public String getNombre()<br>
+    {
+        return nombre;<br>
+    }
+}
+<br>
+La clase Java que hemos creado para este ejemplo tiene como nombre "Animal", pertenece al paquete "misClases" y posee los atributos raza, nombre y edad, adicionalmente tenemos un constructor que recibe un nombre y se lo asigna al animal y tres métodos encargados de obtener y establecer la edad del animal y el restante para obtener el nombre.<br>
+</p>
+
+<h1>Objetos en Java</h1>
+<p>
+Muy bien, ya hemos aprendido a la perfección cómo crear clases en java, y cuáles son sus componentes esenciales, ahora vamos a aprender a crear objetos en Java, cómo se hace, veremos brevemente la utilidad y funcionamiento de los constructores y como usar los métodos
+</p>
+<br>
+<h2>¿Cómo crear un objeto en Java?</h2>
+<p>
+	Al momento de crear objetos en Java, debemos tener claras dos cosas indispensables, la primera es el nombre de la clase para la cual vamos a crear el objeto y segundo el constructor que dicha clase posee, es decir, si el constructor recibe o no parámetros.<br>
+
+Para crear objetos en Java, el lenguaje nos proporciona el comando new, con este comando le decimos a Java que vamos a crear un nuevo objeto de una clase en especifico y le enviamos los parámetros (en caso de ser necesario) según el constructor, veamos un ejemplo.<br>
+
+Ejemplo de objetos en java<br>
+Vamos a crear un objeto o instancia en Java para la clase que hemos creado al comienzo llamada MiClase. Esta clase tiene un constructor que no recibe parámetros, por lo cual no es necesario enviar algún tipo de valor al momento de crear el objeto, veamos entonces la sintaxis para crear un objeto del tipo MiClase en java.<br>
+
+
+MiClase miObjeto; //Declaramos una variable del tipo de la clase<br>
+miObjeto = new MiClase(); //Aquí ya hemos creado un objeto de MiClase<br>
+
+Otra forma de hacer y que también es válida es la siguiente:<br>
+
+
+MiClase miObjeto = new MiClase(); //Declaramos y creamos el objeto en una línea<br>
+
+Ejemplo 2 de objetos en Java<br>
+Vamos ahora a crear un objeto o instancia para la clase Animal (la del ejemplo dos), en esta ocasión tenemos un constructor que recibe un parámetro (el nombre del animal) y que posee tres métodos de los cuales haremos uso para este ejemplo.<br>
+
+
+import misClases.Animal; //Importamos la clase Animal para poder usarla<br>
+
+public class Ejemplo<br>
+{
+    public static void main(String[] args)<br>
+    {
+        //Creamos un animal cuyo nombré será Falco<br>
+        Animal miAnimal = new Animal("Falco");<br>
+        //Le establecemos 3 años de edad a Falco.<br>
+        miAnimal.setEdad(3);<br>
+        //Mostraremos el nombre del animal por pantalla<br>
+        System.out.println("El nombre es: " + miAnimal.getNombre());<br>
+        //Mostramos la edad del animal por pantalla<br>
+        System.out.println(" y tiene " + miAnimal.getEdad() + " años");<br>
+        //Este código deberia imprimir "El nombre es: Falco y tiene 3 años"<br>
+    }
+}
+<br>
+Nota: Es importante notar que es similar hacer uso de método set para establecer atributos y usar el constructor enviandole parámetros, es decir, el resultado es el mismo al usar un constructor vacío y luego establecer los valores de los atributos por medio de una función set o usar un constructor que reciba una serie de parámetros que usará para establecer valores a los atributos. La diferencia radica esencialmente en la agilidad y número de líneas, al usar el constructor y enviar los parámetros, el constructor hace todas las asignaciones por nosotros y usamos una sola línea de código (normalmente) mientras que al usar métodos set debemos usar un método set por cada atributo y si tenemos cinco o más atributos ya se vuelve un poco molesto hacerlo además de tener que usar un constructor de todas formas.<br>
+</p>
+<h3>VideoTutorial</h3>
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oMWrJwMPd6k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+<a href="/index.html">Index</a><br>
+</body>
+</html>
